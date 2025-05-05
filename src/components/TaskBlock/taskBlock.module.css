@@ -1,0 +1,26 @@
+.taskBlock{
+    padding: 5px 0;
+}
+
+.taskDescription {
+    border: 1px solid #f10606;
+    background-color: #c3bbbb;
+}
+
+.description {
+    border: 1px solid #3ed616;
+    background-color: rgba(99, 239, 63, 0.56);
+}
+
+.consoleText{
+    background-color: #f6f6f6;
+    border-radius: 8px;
+    padding: 5px 10px;
+    font-family: 'Consolas', 'Monaco', 'Menlo', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    border: 1px solid #e0e0e0;
+    margin: 1em 0;
+    tab-size: 2;
+}

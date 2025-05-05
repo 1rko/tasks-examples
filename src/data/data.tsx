@@ -12,6 +12,7 @@ export type Topic = {
 
 export type Task = {
     id: string
+    taskDescription: string
     question: string
     answer: string
     description: string
@@ -50,20 +51,73 @@ export const tasks: Record<string, Task[]> = {
     [topicId1]: [
         {
             id: v1(),
-            question: 'текст задачи 1',
-            answer: 'answer 1',
-            description: 'описание 1',
+            taskDescription: 'Что выведется в консоль?',
+            question: 'const user = {\n' +
+                '  name: \'Alex\',\n' +
+                '  greet() {\n' +
+                '    console.log(`Hello, ${this.name}!`);\n' +
+                '  }\n' +
+                '};\n' +
+                '\n' +
+                'const greet = user.greet;\n' +
+                'greet(); // Что выведет?',
+            answer: 'Hello, undefined! (или ошибка в strict mode)',
+            description: 'При присваивании greet = user.greet теряется контекст user. Функция вызывается как обычная (не метод), поэтому this будет window (или undefined в strict mode).',
         },
         {
             id: v1(),
+            taskDescription: 'Что выведется в консоль?',
+            question: 'const user = {\n' +
+                '  name: \'Anna\',\n' +
+                '  greet: () => {\n' +
+                '    console.log(`Hi, ${this.name}!`);\n' +
+                '  }\n' +
+                '};\n' +
+                '\n' +
+                'user.greet(); // Что выведет?',
+            answer: 'Hi, undefined!',
+            description: 'Стрелочные функции не имеют своего this и берут его из внешнего лексического окружения (в данном случае — глобальный объект window или undefined в strict mode).',
+        },
+        {
+            id: v1(),
+            taskDescription: 'Что выведется в консоль?',
+            question: 'const timer = {\n' +
+                '  seconds: 10,\n' +
+                '  start() {\n' +
+                '    setTimeout(function() {\n' +
+                '      console.log(this.seconds);\n' +
+                '    }, 1000);\n' +
+                '  }\n' +
+                '};\n' +
+                '\n' +
+                'timer.start(); ',
+            answer: 'undefined',
+            description: 'Колбэк в setTimeout вызывается как обычная функция, поэтому this теряется и указывает на глобальный объект.\n' +
+                'Исправления:\n' +
+                '\n' +
+                'Использовать стрелочную функцию (берет this из start):\n' +
+                '\n' +
+                'javascript\n' +
+                'setTimeout(() => console.log(this.seconds), 1000);\n' +
+                'Привязать контекст:\n' +
+                '\n' +
+                'javascript\n' +
+                'setTimeout(function() {\n' +
+                '  console.log(this.seconds);\n' +
+                '}.bind(this), 1000);\n',
+        },
+        {
+            id: v1(),
+            taskDescription: 'описание задания 2',
             question: 'текст задачи 2',
             answer: 'answer 2',
             description: 'описание 2',
         },
-    ],
+    ],          //This
     [topicId2]: [
         {
             id: v1(),
+            taskDescription: 'описание задания 1',
             question: 'console.log(\'Start\');\n' +
                 '\n' +
                 'setTimeout(() => console.log(\'Timeout 1\'), 0);\n' +
@@ -93,10 +147,30 @@ export const tasks: Record<string, Task[]> = {
         },
         {
             id: v1(),
+            taskDescription: 'описание задания 2',
             question: 'текст задачи 2',
             answer: 'answer 2',
             description: 'описание 2',
-
         },
-    ]
+    ],          //EVENT LOOP
+    [topicId3]: [
+        {
+            id: v1(),
+            taskDescription: 'написать функцию каррирования',
+            question: 'написать функциюю каррирования',
+            answer: 'function curry(func) {\n' +
+                '    return function curried(...args) {\n' +
+                '        if (args.length >= func.length) {\n' +
+                '            return func.apply(this, args);\n' +
+                '        } else {\n' +
+                '            return function(...args2) {\n' +
+                '                return curried.apply(this, args.concat(args2));\n' +
+                '            }\n' +
+                '        }\n' +
+                '    };\n' +
+                '}',
+            description: '**Только функции с фиксированным количеством аргументов**',
+        }
+    ]            //КАРРИРОВАНИЕ
 }
+
