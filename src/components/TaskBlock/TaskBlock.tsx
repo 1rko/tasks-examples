@@ -9,7 +9,7 @@ export const TaskBlock: React.FC<Task> = ({
                                               description
                                           }) => {
     return (
-        <div className={s.taskBlock}>
+        <div className={s.taskBlock} key={id}>
             <div className={s.taskDescription}>
                 {taskDescription}
             </div>
