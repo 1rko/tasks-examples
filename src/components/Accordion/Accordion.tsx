@@ -1,5 +1,6 @@
 import {useAutoAnimate} from "@formkit/auto-animate/react";
 import {useState} from "react";
+import s from './Accordion.module.css'
 
 type Props = {
     title?: string
@@ -20,8 +21,8 @@ export const Accordion = (props: Props) => {
     const [parent] = useAutoAnimate<HTMLDivElement>()
 
     return (
-        <div ref={parent}>
-            <h3 onClick={toggleHandler}>{title}</h3>
+        <div ref={parent} className={s.accordionWrapper}>
+            <h3 className={s.text} onClick={toggleHandler}>{title}</h3>
             {isCollapsed && children}
         </div>
     );
