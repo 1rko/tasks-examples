@@ -29,6 +29,7 @@ const topicId2 = self.crypto.randomUUID();
 const topicId3 = self.crypto.randomUUID();
 const topicId4 = self.crypto.randomUUID();
 
+//Главные разделы
 export const subjects: Subject[] = [
     {id: subjectId1, title: 'JS'},
     {id: subjectId2, title: 'TS'},
@@ -36,6 +37,7 @@ export const subjects: Subject[] = [
     {id: subjectId4, title: 'Redux'},
 ]
 
+//Темы в разделах
 export const topics: Record<string, Topic[]> = {
     [subjectId1]: [
         {id: topicId1, title: 'THIS'},
@@ -47,6 +49,7 @@ export const topics: Record<string, Topic[]> = {
     ]
 }
 
+//Задачи по разделам
 export const tasks: Record<string, Task[]> = {
     [topicId1]: [
         {
