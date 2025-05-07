@@ -13,6 +13,7 @@ export const TaskBlock: React.FC<Task> = ({
             <div className={s.taskDescription}>
                 {taskDescription}
             </div>
+            <label> Задача </label>
             <textarea
                 className={s.consoleText}
                 value={question}
