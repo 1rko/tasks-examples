@@ -1,17 +1,32 @@
 import {Task} from "../../data/data.tsx";
 import s from './taskBlock.module.css'
 
-export const TaskBlock: React.FC<Task> = ({
-                                              id,
-                                              taskDescription,
-                                              question,
-                                              answer,
-                                              description
-                                          }) => {
+type Props = Task & {
+    topic: string,
+    section: string,
+    deleteTask: (id: number) => void
+}
+
+export const TaskBlock: React.FC<Props> = ({
+                                               id,
+                                               topic,
+                                               section,
+                                               taskDescription,
+                                               question,
+                                               answer,
+                                               description,
+                                               deleteTask
+                                           }) => {
     return (
-        <div className={s.taskBlock} key={id}>
+        <div className={s.topic} key={id}>
+            <div className={s.topic}>
+                Topic: {topic}
+            </div>
+            <div className={s.section}>
+                Section: {section}
+            </div>
             <div className={s.taskDescription}>
-                {taskDescription}
+                Task description: {taskDescription}
             </div>
             <label> Задача </label>
             <textarea
@@ -25,6 +40,13 @@ export const TaskBlock: React.FC<Task> = ({
             <div className={s.description}>
                 {description}
             </div>
+            <button
+                onClick={() => deleteTask(id as number)}
+                className={s.deleteBtn}
+                title="Delete test"
+            >
+                Удалить задачу
+            </button>
         </div>
     );
 };

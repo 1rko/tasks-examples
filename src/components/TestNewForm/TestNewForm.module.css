@@ -1,0 +1,35 @@
+.testItem {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    position: relative;
+}
+
+.testMeta {
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.topic, .section {
+    margin-right: 5px;
+}
+
+.deleteBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.deleteBtn:hover {
+    background: #cc0000;
+}

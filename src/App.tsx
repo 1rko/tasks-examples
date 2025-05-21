@@ -9,10 +9,11 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import {TestNewForm} from "./components/TestNewForm/TestNewForm.tsx";
+import {AccordionList} from "./components/AccordionList/AccordionList.tsx";
 
 function App() {
 
-    useAutoResizeTextareas();               //функция для подстраивания размера textarea по высоте контента
+    /*useAutoResizeTextareas();               //функция для подстраивания размера textarea по высоте контента
 
     const allSubjects = subjects.map(subj => (
 
@@ -60,13 +61,13 @@ function App() {
                 }
             </AccordionDetails>
         </Accordion>
-    ))
+    ))*/
+
 
     return (
         <>
             <div>
                 <TestNewForm/>
-                {allSubjects}
             </div>
         </>
     )

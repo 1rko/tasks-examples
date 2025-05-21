@@ -11,7 +11,7 @@ export type Topic = {
 }
 
 export type Task = {
-    id: string
+    id: string | number
     taskDescription: string
     question: string
     answer: string

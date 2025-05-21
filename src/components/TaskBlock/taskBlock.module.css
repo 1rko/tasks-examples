@@ -1,5 +1,14 @@
 .taskBlock{
     padding: 5px 0;
+    border: 1px solid red;
+}
+
+.topic{
+    border: 1px solid blue;
+}
+
+.section{
+    border: 1px solid #d000ff;
 }
 
 .taskDescription {
@@ -24,4 +33,8 @@
     border: 1px solid #e0e0e0;
     margin: 1em 0;
     tab-size: 2;
+}
+
+.deleteBtn{
+    border: 1px solid #989393;
 }
