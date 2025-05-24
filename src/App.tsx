@@ -1,15 +1,5 @@
 import './App.css'
-import {subjects, tasks, topics} from "./data/data.tsx";
-import {TaskBlock} from "./components/TaskBlock/TaskBlock.tsx";
-import {useAutoResizeTextareas} from "./utils/useAutoResizeTextareas.ts";
-
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import {TestNewForm} from "./components/TestNewForm/TestNewForm.tsx";
-import {AccordionList} from "./components/AccordionList/AccordionList.tsx";
 
 function App() {
 

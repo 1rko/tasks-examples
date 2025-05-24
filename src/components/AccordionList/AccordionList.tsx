@@ -59,6 +59,8 @@ export const AccordionList: React.FC<Props> = ({
                                             </Typography>
                                             <TaskBlock
                                                 id={test.id}
+                                                topic={test.topic}
+                                                section={test.section}
                                                 taskDescription={test.question}
                                                 question={test.question}
                                                 answer={test.answer}
