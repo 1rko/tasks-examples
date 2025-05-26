@@ -2,6 +2,7 @@ import {useState, useEffect, ChangeEvent, FormEvent} from 'react';
 import s from './TestNewForm.module.css'
 import {Tests} from "../AccordionList/AccordionList.tsx";
 import {TaskBlock} from "../TaskBlock/TaskBlock.tsx";
+import {Filters} from "../Filters/Filters.tsx";
 
 export const TestNewForm = () => {
     const [formData, setFormData] = useState({
@@ -89,7 +90,7 @@ export const TestNewForm = () => {
         }
     };
 
-    const handleFilterChange = (e: ChangeEvent<HTMLSelectElement> ) => {
+    const handleFilterChange = (e: ChangeEvent<HTMLSelectElement>) => {
         const {name, value} = e.target;
         setFilters(prev => {
             // Если меняется тема, сбрасываем раздел
@@ -154,38 +155,12 @@ export const TestNewForm = () => {
         <div>
             <h1>Test Manager</h1>
 
-            Фильтры
-            <div className="filters">
-                <select
-                    name="topic"
-                    value={filters.topic}
-                    onChange={handleFilterChange}
-                >
-                    <option value="">All Topics</option>
-                    {topics.map(topic => (
-                        <option key={topic} value={topic}>{topic}</option>
-                    ))}
-                </select>
-
-                <select
-                    name="section"
-                    value={filters.section}
-                    onChange={handleFilterChange}
-                    disabled={!filters.topic}
-                >
-                    <option value="">All Sections</option>
-                    {sections.map(section => (
-                        <option key={section} value={section}>{section}</option>
-                    ))}
-                </select>
-
-                <button
-                    onClick={() => setFilters({topic: '', section: ''})}
-                    disabled={!filters.topic && !filters.section}
-                >
-                    Clear Filters
-                </button>
-            </div>
+            <Filters filters={filters}
+                     topics={topics}
+                     setFilters={setFilters}
+                     sections={sections}
+                     handleFilterChange={handleFilterChange}
+            />
 
             Форма добавления теста ...
 
