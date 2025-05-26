@@ -121,6 +121,7 @@ export const TestNewForm = () => {
             // Обновляем список тестов и подсказок после сохранения
 
             fetchTests();
+            debugger
             fetchSuggestions();
             // Очищаем форму
             setFormData({
@@ -155,6 +156,7 @@ export const TestNewForm = () => {
         <div>
             <h1>Test Manager</h1>
 
+            {/*Фильтрация заданий по темам и разделам (фильтрация происходит на сервере)*/}
             <Filters filters={filters}
                      topics={topics}
                      setFilters={setFilters}
@@ -162,6 +164,7 @@ export const TestNewForm = () => {
                      handleFilterChange={handleFilterChange}
             />
 
+            {/*Форма добавления нового задания*/}
             <TestAddingForm
                 topic={formData.topic}
                 topics={suggestions.topics}
@@ -173,6 +176,7 @@ export const TestNewForm = () => {
                 handleChange={handleChange}
             />
 
+            {/*Список сохраненных заданий*/}
             <TestsList
                 tests={tests}
                 handleDelete={handleDelete}
