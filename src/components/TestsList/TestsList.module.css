@@ -1,0 +1,11 @@
+.testsList{
+
+}
+
+.testItem {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    position: relative;
+}

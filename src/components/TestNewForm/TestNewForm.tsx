@@ -1,8 +1,8 @@
-import {useState, useEffect, ChangeEvent, FormEvent} from 'react';
-import s from './TestNewForm.module.css'
+import {ChangeEvent, FormEvent, useEffect, useState} from 'react';
 import {Tests} from "../AccordionList/AccordionList.tsx";
-import {TaskBlock} from "../TaskBlock/TaskBlock.tsx";
 import {Filters} from "../Filters/Filters.tsx";
+import {TestAddingForm} from "../TestAddingForm/TestAddingForm.tsx";
+import {TestsList} from "../TestsList/TestsList.tsx";
 
 export const TestNewForm = () => {
     const [formData, setFormData] = useState({
@@ -162,102 +162,21 @@ export const TestNewForm = () => {
                      handleFilterChange={handleFilterChange}
             />
 
-            Форма добавления теста ...
+            <TestAddingForm
+                topic={formData.topic}
+                topics={suggestions.topics}
+                section={formData.section}
+                sections={suggestions.sections}
+                question={formData.question}
+                answer={formData.answer}
+                handleSubmit={handleSubmit}
+                handleChange={handleChange}
+            />
 
-            <form onSubmit={handleSubmit}>
-                <div>
-                    <label>Topic:</label>
-                    <input
-                        type="text"
-                        name="topic"
-                        value={formData.topic}
-                        onChange={handleChange}
-                        list="topics-list"
-                        required
-                    />
-                    <datalist id="topics-list">
-                        {suggestions.topics.map((topic, i) => (
-                            <option key={i} value={topic}/>
-                        ))}
-                    </datalist>
-                </div>
-
-                <div>
-                    <label>Section:</label>
-                    <input
-                        type="text"
-                        name="section"
-                        value={formData.section}
-                        onChange={handleChange}
-                        list="sections-list"
-                        required
-                    />
-                    <datalist id="sections-list">
-                        {suggestions.sections.map((section, i) => (
-                            <option key={i} value={section}/>
-                        ))}
-                    </datalist>
-                </div>
-
-                <div>
-                    <label>Question:</label>
-                    <textarea
-                        name="question"
-                        value={formData.question}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <div>
-                    <label>Answer:</label>
-                    <textarea
-                        name="answer"
-                        value={formData.answer}
-                        onChange={handleChange}
-                        required
-                    />
-                </div>
-
-                <button type="submit">Save Test</button>
-            </form>
-
-            <h2>Saved Tests ({tests.length})</h2>
-            <div className={s.testsList}>
-                {tests.map((test) => (
-                    <div key={test.id} className={s.testItem}>
-                        <TaskBlock
-                            id={test.id}
-                            topic={test.topic}
-                            section={test.section}
-                            taskDescription={test.question}
-                            question={test.question}
-                            answer={test.answer}
-                            description={test.answer}
-                            deleteTask={() => handleDelete(test.id)}
-                        />
-                        {/*  <div className={s.testMeta}>
-                            <span className={s.topic} > {test.topic}</span> /
-                            <span className={s.section} > {test.section}</span>
-                            <button
-                                onClick={() => handleDelete(test.id)}
-                                className={s.deleteBtn}
-                                title="Delete test"
-                            >
-                                ×
-                            </button>
-                        </div>
-                        <h3>Q: {test.question}</h3>
-                        <p>A: {test.answer}</p>*/}
-                    </div>
-                ))}
-            </div>
-
-            {/* <AccordionList
+            <TestsList
                 tests={tests}
-                deleteTask={handleDelete}
-            />*/}
-
+                handleDelete={handleDelete}
+            />
         </div>
     );
 }

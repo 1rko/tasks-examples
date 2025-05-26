@@ -38,3 +38,7 @@
 .deleteBtn{
     border: 1px solid #989393;
 }
+
+.deleteBtn:hover {
+    background: rgb(253, 21, 77);
+}

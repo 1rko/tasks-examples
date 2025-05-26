@@ -4,11 +4,9 @@ import {TestNewForm} from "./components/TestNewForm/TestNewForm.tsx";
 function App() {
 
     return (
-        <>
-            <div>
-                <TestNewForm/>
-            </div>
-        </>
+        <div>
+            <TestNewForm/>
+        </div>
     )
 }
 

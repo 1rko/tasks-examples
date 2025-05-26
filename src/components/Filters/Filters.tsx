@@ -1,5 +1,5 @@
 import {ChangeEvent} from "react";
-import {SelectForFilter} from "../SelectForFilter/SelectForFilter.tsx";
+import {SelectForFilter} from "./SelectForFilter/SelectForFilter.tsx";
 
 export type Filter = {
     topic: string
